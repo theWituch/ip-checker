@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IP Checker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="hero">
+        <h1>IP Checker</h1>
+      </section>
+
+      <section class="panel">
+        <div class="current-ip">
+          <span class="label">Current IP Address</span>
+          <strong id="current-ip" class="value">Loading...</strong>
+          <p id="status" class="status" aria-live="polite"></p>
+        </div>
+
+        <div class="list-header">
+          <h2>Known Addresses</h2>
+          <span id="match-badge" class="match-badge" hidden>Matched</span>
+        </div>
+
+        <ul id="ip-list" class="ip-list" aria-live="polite"></ul>
+
+        <div class="editor-toggle-row">
+          <button
+            id="toggle-editor"
+            class="button"
+            type="button"
+            aria-expanded="false"
+            aria-controls="editor-panel"
+          >
+            Show Address Editor
+          </button>
+        </div>
+
+        <section id="editor-panel" class="editor" aria-labelledby="json-editor-title" hidden>
+          <div class="list-header editor-header">
+            <h2 id="json-editor-title">Address List in JSON</h2>
+            <span class="storage-badge">Local storage</span>
+          </div>
+
+          <p class="editor-note">
+            Data is stored locally in the browser storage.
+          </p>
+
+          <label class="sr-only" for="json-input">Address list in JSON format</label>
+          <textarea
+            id="json-input"
+            class="json-input"
+            spellcheck="false"
+            aria-describedby="json-help"
+          ></textarea>
+
+          <p id="json-help" class="editor-note">
+            Expected format: an array of objects with <code>name</code> and <code>ip</code> fields.
+          </p>
+
+          <div class="editor-actions">
+            <button id="save-json" class="button button-primary" type="button">Save JSON</button>
+            <button id="reset-json" class="button" type="button">Reset Default Data</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

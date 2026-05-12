@@ -1,0 +1,10 @@
+{
+  "name": "ip-checker",
+  "version": "1.0.0",
+  "description": "Static IP checker page for deployment on any static hosting platform.",
+  "license": "MIT",
+  "scripts": {
+    "serve:nginx": "docker compose up -d",
+    "serve:nginx:stop": "docker compose down"
+  }
+}
